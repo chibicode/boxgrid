@@ -34,6 +34,7 @@ $(function() {
     $(el).css("background-image", pattern.dataUrl);
   });
 
+  var paddingTop = 0;
   if ($(".js-bg-nav-dropdown").length > 0) {
     var drop = new Drop({
      target: $('.js-bg-selector')[0],
@@ -42,10 +43,11 @@ $(function() {
      classes: 'drop-theme-arrows-bounce-dark',
      openOn: 'click'
     });
+    paddingTop = "3.5rem";
   }
 
   $('.fullpage').fullpage({
-    paddingTop: '3.5rem',
+    paddingTop: paddingTop,
     scrollOverflow: true,
     resize: false,
     anchors: ["intro", "page1", "page2", "page3", "page4", "page5", "page6"],
