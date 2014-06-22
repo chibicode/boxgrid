@@ -3,13 +3,3 @@
     @content;
   }
 }
-@mixin boxgrid-lg-width {
-  @media screen and (min-width: 40em) {
-    @content;
-  }
-}
-@mixin boxgrid-xl-width {
-  @media screen and (min-width: $code-width-em) {
-    @content;
-  }
-}

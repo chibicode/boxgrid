@@ -3,6 +3,17 @@
 @import "../../../bower_components/typeplate-starter-kit/scss/typeplate";
 @import "includes";
 
+@mixin boxgrid-lg-width {
+  @media screen and (min-width: 40em) {
+    @content;
+  }
+}
+@mixin boxgrid-xl-width {
+  @media screen and (min-width: $code-width-em) {
+    @content;
+  }
+}
+
 $container-width: 60rem;
 $code-width-rem: 60rem * 0.8;
 $code-width-em: 60em * 0.8;
