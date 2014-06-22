@@ -1,0 +1,25 @@
+{
+  "name": "tether-tooltip",
+  "version": "0.2.6",
+  "homepage": "https://github.hubspot.com/tooltip",
+  "authors": [
+    "Zack Bloom <zackbloom@gmail.com>",
+    "Adam Schwartz <adam.flynn.schwartz@gmail.com>"
+  ],
+  "description": "Tooltips built on Tether",
+  "keywords": [
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "drop": "0.5.4",
+    "tether": "0.6.5"
+  }
+}

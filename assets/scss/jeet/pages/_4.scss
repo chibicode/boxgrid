@@ -1,0 +1,9 @@
+.row { @include cf; }
+
+.col-4 { @include col(4/12); }
+.col-3.col-offset-1 {
+   @include col(3/12, $offset: 1/12);
+ }
+.col-2.col-offset-2 {
+  @include col(2/12, $offset: 2/12);
+}

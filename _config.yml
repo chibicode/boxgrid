@@ -1,0 +1,14 @@
+markdown: redcarpet
+pygments: true
+permalink: :title
+baseurl: /boxgrid
+exclude:
+  - "README.md"
+  - "CNAME"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "Gruntfile.coffee"
+  - "bower.json"
+  - "package.json"
+  - "node_modules"
+  - "config.json"

@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="bg-row section">
+  <div class="bg-container">
+    <h1 class="bg-heading beta">
+      {{ page.title }} Demo
+    </h1>
+    <p class="bg-subheading">
+      &ldquo;{{ page.description }}&rdquo;
+    </p>
+    <div class="bg-intro-buttons">
+      <a class="bg-intro-button bg-intro-button-main" href="#page1">&darr; View Demo</a>
+      <a href="{{ page.official_url }}"
+         class="bg-intro-button bg-intro-button-quiet" target="_blank">Official Site</a>
+    </div>
+  </div>
+</div>
+{% for section in site.data.sections %}
+  <div class="bg-row section">
+    <div class="bg-container">
+      <h1 class="bg-heading delta">
+        <span>{{ forloop.index}}. {{ section.name }}</span>
+      </h1>
+      <p class="bg-subheading">
+        {{ section.spec }}
+      </p>
+      {% capture filename %}{{ page.key }}/pages/{{ forloop.index }}.html{% endcapture %}
+      {% include {{filename}} %}
+      <div class="bg-code-wrapper">
+        <div class="bg-code-col bg-code-col-html">
+          <div class="nano">
+            <div class="nano-content">
+              {% capture html_code %}{% include {{filename}} %}{% endcapture %}
+              {% highlight html %}{{ html_code }}{% endhighlight %}
+            </div>
+          </div>
+        </div>
+        <div class="bg-code-col bg-code-col-css">
+          <div class="nano">
+            <div class="nano-content">
+              {% capture css_filename %}{{ page.key }}/pages/_{{ forloop.index }}.{{ page.lang }}{% endcapture %}
+              {% capture css_code %}{% include {{css_filename}} %}{% endcapture %}
+              {% if page.lang == "scss" %}
+              {% highlight scss %}{{ css_code }}{% endhighlight %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

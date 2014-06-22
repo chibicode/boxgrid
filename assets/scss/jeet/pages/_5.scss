@@ -1,0 +1,4 @@
+.row { @include cf; }
+
+.col-5 { @include col(5/12); }
+.col-7 { @include col(7/12); }

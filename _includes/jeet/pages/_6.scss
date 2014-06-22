@@ -1,0 +1,8 @@
+.row { @include cf; }
+
+.col-2 { @include col(2/12); }
+.col-4 { @include col(4/12); }
+.col-6 { @include col(6/12); }
+
+.col-pull-4 { @include shift(-4/12); }
+.col-push-2 { @include shift(2/12); }

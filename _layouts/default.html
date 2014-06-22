@@ -1,0 +1,79 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Boxgrid
+      {% if page.title %}
+       / {{ page.title }}
+      {% endif %}
+    </title>
+    <link href="{{ baseurl }}/bower_components/normalize-css/normalize.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,700,200italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300' rel='stylesheet' type='text/css'>
+    <link href="{{ baseurl }}/bower_components/fullPage.js/jquery.fullPage.css" rel="stylesheet">
+    <link href="{{ baseurl }}/bower_components/drop/css/drop-theme-arrows-bounce-dark.css" rel="stylesheet">
+    <link href="{{ baseurl }}/bower_components/tether-tooltip/css/tooltip-theme-arrows.css" rel="stylesheet">
+    <link href="{{ baseurl }}/bower_components/nanoscroller/bin/css/nanoscroller.css" rel="stylesheet">
+    <link href="{{ baseurl }}/assets/css/common/common.css" rel="stylesheet">
+    {% if page.key %}
+    <link href="{{ baseurl }}/assets/css/{{ page.key }}/{{ page.key }}.css" rel="stylesheet">
+    {% endif %}
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {% if page.url != "/index.html" %}
+      <div class="bg-nav js-bg-menu">
+        <span class="bg-selector js-bg-selector">
+          <strong>BoxGrid</strong>
+          &#9662;
+        </span>
+        <a href="#intro"
+          class="bg-page-selector js-bg-page-selector"
+          data-bg-index="1">
+          {{ page.title }}
+        </a>
+        <span class="bg-nav-bar">
+          {% for section in site.data.sections %}
+            <a href="#page{{ forloop.index }}"
+              class="bg-page-selector js-bg-page-selector is-inactive"
+              data-bg-index="{{ forloop.index | plus:1 }}"
+              data-tooltip="{{ section.name }}"
+              data-tooltip-position="bottom center">
+              {{ forloop.index }}
+            </a>
+          {% endfor %}
+        </span>
+      </div>
+      <div class="bg-nav-dropdown js-bg-nav-dropdown">
+        {% include grid-selector.html %}
+        <div class="bg-nav-dropdown-footer">
+          <a href="{{ baseurl }}/">&larr; Back to Home</a>
+        </div>
+      </div>
+    {% endif %}
+    <div class="fullpage">
+      {{ content }}
+    </div>
+    <script src="{{ baseurl }}/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/d3/d3.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/trianglify/trianglify.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/fullPage.js/vendors/jquery.easings.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/fullPage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/fullPage.js/jquery.fullPage.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/drop/drop.min.js"></script>
+    <script src="{{ baseurl }}/bower_components/tether-tooltip/tooltip.js"></script>
+    <script src="{{ baseurl }}/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+    <script src="{{ baseurl }}/assets/js/boxgrid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "boxgrid",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "typeplate-starter-kit": "~1.1.4",
+    "normalize-css": "~3.0.1",
+    "trianglify": "~0.1.2",
+    "d3": "~3.4.8",
+    "fullPage.js": "~2.0.7",
+    "tether-tooltip": "~0.2.6",
+    "drop": "~0.5.4",
+    "nanoscroller": "~0.8.0"
+  }
+}

@@ -1,0 +1,11 @@
+<ul class="bg-grid-selector">
+  {% for page in site.pages %}
+  {% if page.url != "/index.html" %}
+  <li>
+    <a href="{{ baseurl }}{{ page.url }}" class="bg-grid-link">
+      {{ page.title }}
+    </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,25 @@
+- name: "Basic, Responsive"
+  spec: >
+    Column widths:
+      full width on mobile. 1/12, 1/6, 1/4 and 1/2 otherwise.
+    <br>
+    <em>
+      Note: Mobile breakpoint is 30em unless the grid framework defines it.
+    </em>
+- name: "No Gutters"
+  spec: >
+    3 columns of equal width without gutters.
+- name: "Responsive Reset"
+  spec: >
+    6 columns with 1/2 width on mobile, 1/3 width otherwise.
+- name: "Offsets"
+  spec: >
+    1/3 column, 1/12 offset, 1/4 column, 1/6 offset and 1/6 column.
+- name: "Nested"
+  spec: >
+    7/12 column and 5/12 column, repeating itself in the first column.
+- name: "Ordering"
+  spec: >
+    Column widths:
+      1/6, 1/3, and 1/2.
+      In HTML, the 1st and 2nd columns are swapped.
