@@ -11,9 +11,10 @@ module.exports = (grunt) ->
           ext: '.scss'
         ]
     jekyll:
-      build: {}
-      options:
-        bundleExec: true
+      build:
+        options:
+          bundleExec: true
+          config: ["_config.yml", "_config.dev.yml"]
     connect:
       server:
         options:

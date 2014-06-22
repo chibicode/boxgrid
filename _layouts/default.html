@@ -12,16 +12,16 @@
        / {{ page.title }}
       {% endif %}
     </title>
-    <link href="{{ baseurl }}/bower_components/normalize-css/normalize.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/bower_components/normalize-css/normalize.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:200,700,200italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300' rel='stylesheet' type='text/css'>
-    <link href="{{ baseurl }}/bower_components/fullPage.js/jquery.fullPage.css" rel="stylesheet">
-    <link href="{{ baseurl }}/bower_components/drop/css/drop-theme-arrows-bounce-dark.css" rel="stylesheet">
-    <link href="{{ baseurl }}/bower_components/tether-tooltip/css/tooltip-theme-arrows.css" rel="stylesheet">
-    <link href="{{ baseurl }}/bower_components/nanoscroller/bin/css/nanoscroller.css" rel="stylesheet">
-    <link href="{{ baseurl }}/assets/css/common/common.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/bower_components/fullPage.js/jquery.fullPage.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/bower_components/drop/css/drop-theme-arrows-bounce-dark.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/bower_components/tether-tooltip/css/tooltip-theme-arrows.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/bower_components/nanoscroller/bin/css/nanoscroller.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/common/common.css" rel="stylesheet">
     {% if page.key %}
-    <link href="{{ baseurl }}/assets/css/{{ page.key }}/{{ page.key }}.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/{{ page.key }}/{{ page.key }}.css" rel="stylesheet">
     {% endif %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -58,22 +58,22 @@
       <div class="bg-nav-dropdown js-bg-nav-dropdown">
         {% include grid-selector.html %}
         <div class="bg-nav-dropdown-footer">
-          <a href="{{ baseurl }}/">&larr; Back to Home</a>
+          <a href="{{ site.baseurl }}/">&larr; Back to Home</a>
         </div>
       </div>
     {% endif %}
     <div class="fullpage">
       {{ content }}
     </div>
-    <script src="{{ baseurl }}/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/d3/d3.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/trianglify/trianglify.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/fullPage.js/vendors/jquery.easings.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/fullPage.js/vendors/jquery.slimscroll.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/fullPage.js/jquery.fullPage.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/drop/drop.min.js"></script>
-    <script src="{{ baseurl }}/bower_components/tether-tooltip/tooltip.js"></script>
-    <script src="{{ baseurl }}/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
-    <script src="{{ baseurl }}/assets/js/boxgrid.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/d3/d3.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/trianglify/trianglify.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/fullPage.js/vendors/jquery.easings.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/fullPage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/fullPage.js/jquery.fullPage.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/drop/drop.min.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/tether-tooltip/tooltip.js"></script>
+    <script src="{{ site.baseurl }}/bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/boxgrid.js"></script>
   </body>
 </html>
