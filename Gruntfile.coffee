@@ -6,7 +6,8 @@ module.exports = (grunt) ->
   frameworkWatchFiles = {}
   for lang in ["scss"]
     frameworkCompileFiles[lang] =\
-      for target in grunt.file.expand "framework-examples/*"
+      for target in grunt.file.expand ["framework-examples/*",
+        "!framework-examples/starter-template"]
         {
           expand: true
           cwd: "#{target}/stylesheets/"
@@ -18,7 +19,8 @@ module.exports = (grunt) ->
       "#{file['cwd']}#{file['src']}"
 
   frameworkCopyFiles =\
-    for target in grunt.file.expand "framework-examples/*"
+    for target in grunt.file.expand ["framework-examples/*",
+      "!framework-examples/starter-template"]
       target = target.split("/")[1]
       {
         expand: true
