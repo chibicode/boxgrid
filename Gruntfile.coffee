@@ -2,27 +2,30 @@ module.exports = (grunt) ->
   require('load-grunt-config')(grunt)
 
   # http://stackoverflow.com/a/16672303/114157
-  frameworkTargetFiles = {}
+  frameworkCompileFiles = {}
+  frameworkWatchFiles = {}
   for lang in ["scss"]
-    frameworkTargetFiles[lang] = do ->
-      files = []
+    frameworkCompileFiles[lang] =\
       for target in grunt.file.expand "framework-examples/*"
-        files.push
-         expand: true
-         cwd: "#{target}/stylesheets"
-         src: "**/*.#{lang}"
-         dest: "#{target}/stylesheets"
-         ext: '.css'
-      files
+        {
+          expand: true
+          cwd: "#{target}/stylesheets/"
+          src: "**/*.#{lang}"
+          dest: "#{target}/stylesheets/"
+          ext: '.css'
+        }
+    frameworkWatchFiles[lang] = for file in frameworkCompileFiles[lang]
+      "#{file['cwd']}#{file['src']}"
 
-  frameworkCopyFiles = []
-  for target in grunt.file.expand "framework-examples/*"
-    target = target.split("/")[1]
-    frameworkCopyFiles.push
-     expand: true
-     cwd: "framework-examples/#{target}/"
-     src: ["pages/*", "stylesheets/pages/*"]
-     dest: "_includes/#{target}/"
+  frameworkCopyFiles =\
+    for target in grunt.file.expand "framework-examples/*"
+      target = target.split("/")[1]
+      {
+        expand: true
+        cwd: "framework-examples/#{target}/"
+        src: ["pages/*", "stylesheets/pages/*"]
+        dest: "_includes/#{target}/"
+      }
 
   grunt.initConfig
     copy:
@@ -40,8 +43,8 @@ module.exports = (grunt) ->
           base: '_site'
     watch:
       sass:
-        files: ['<%= sass.common.files[0].cwd %><%= sass.common.files[0].src[0] %>',
-                '<%= sass.frameworkExamples.files[0].cwd %><%= sass.frameworkExamples.files[0].src[0] %>']
+        files: ['<%= sass.common.files[0].cwd %><%= sass.common.files[0].src[0] %>'] +
+              frameworkWatchFiles["scss"]
         tasks: ['sass', 'copy:all', 'jekyll:build']
       jekyll:
         files: ["index.html",
@@ -57,7 +60,7 @@ module.exports = (grunt) ->
       options:
         style: 'compressed'
       frameworkExamples:
-        files: frameworkTargetFiles["scss"]
+        files: frameworkCompileFiles["scss"]
       common:
         files: [
           expand: true
