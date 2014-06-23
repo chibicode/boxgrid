@@ -40,7 +40,7 @@ layout: default
         <div class="bg-code-col bg-code-col-css">
           <div class="nano">
             <div class="nano-content">
-              {% capture css_filename %}{{ page.key }}/pages/_{{ forloop.index }}.{{ page.lang }}{% endcapture %}
+              {% capture css_filename %}{{ page.key }}/stylesheets/pages/_{{ forloop.index }}.{{ page.lang }}{% endcapture %}
               {% capture css_code %}{% include {{css_filename}} %}{% endcapture %}
               {% if page.lang == "scss" %}
               {% highlight scss %}{{ css_code }}{% endhighlight %}

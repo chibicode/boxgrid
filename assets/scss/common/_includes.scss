@@ -1,5 +1,0 @@
-@mixin boxgrid-non-mobile {
-  @media screen and (min-width: 30em) {
-    @content;
-  }
-}

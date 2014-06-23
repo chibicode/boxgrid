@@ -3,7 +3,7 @@
 @each $i in (1, 2, 3, 6) {
   .col-md-#{$i} {
     @include col(1);
-    @include boxgrid-non-mobile {
+    @media screen and (min-width: 30em) {
       @include col($i/12);
     }
   }

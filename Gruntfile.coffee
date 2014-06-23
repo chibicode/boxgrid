@@ -1,15 +1,33 @@
 module.exports = (grunt) ->
   require('load-grunt-config')(grunt)
+
+  # http://stackoverflow.com/a/16672303/114157
+  frameworkTargetFiles = {}
+  for lang in ["scss"]
+    frameworkTargetFiles[lang] = do ->
+      files = []
+      for target in grunt.file.expand "framework-examples/*"
+        files.push
+         expand: true
+         cwd: "#{target}/stylesheets"
+         src: "**/*.#{lang}"
+         dest: "#{target}/stylesheets"
+         ext: '.css'
+      files
+
+  frameworkCopyFiles = []
+  for target in grunt.file.expand "framework-examples/*"
+    target = target.split("/")[1]
+    frameworkCopyFiles.push
+     expand: true
+     cwd: "framework-examples/#{target}/"
+     src: ["pages/*", "stylesheets/pages/*"]
+     dest: "_includes/#{target}/"
+
   grunt.initConfig
     copy:
-      sass:
-        files: [
-          expand: true
-          cwd: 'assets/scss/'
-          src: ['**/pages/*.scss']
-          dest: '_includes/'
-          ext: '.scss'
-        ]
+      all:
+        files: frameworkCopyFiles
     jekyll:
       build:
         options:
@@ -22,8 +40,9 @@ module.exports = (grunt) ->
           base: '_site'
     watch:
       sass:
-        files: ['<%= sass.compile.files[0].cwd %><%= sass.compile.files[0].src[0] %>']
-        tasks: ['sass', 'copy:sass', 'jekyll:build']
+        files: ['<%= sass.common.files[0].cwd %><%= sass.common.files[0].src[0] %>',
+                '<%= sass.frameworkExamples.files[0].cwd %><%= sass.frameworkExamples.files[0].src[0] %>']
+        tasks: ['sass', 'copy:all', 'jekyll:build']
       jekyll:
         files: ["index.html",
                 "_layouts/**/*.html",
@@ -35,9 +54,11 @@ module.exports = (grunt) ->
       options:
         livereload: true
     sass:
-      compile:
-        options:
-          style: 'compressed'
+      options:
+        style: 'compressed'
+      frameworkExamples:
+        files: frameworkTargetFiles["scss"]
+      common:
         files: [
           expand: true
           cwd: 'assets/scss/'
@@ -46,4 +67,5 @@ module.exports = (grunt) ->
           ext: '.css'
         ]
 
-  grunt.registerTask 'default', ['sass', 'copy:sass', 'jekyll:build', 'connect', 'watch']
+  grunt.registerTask 'build', ['sass', 'copy:all', 'jekyll:build']
+  grunt.registerTask 'default', ['build', 'connect', 'watch']
