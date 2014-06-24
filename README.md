@@ -2,9 +2,7 @@
 
 ![BoxGrid](assets/images/readme.png)
 
-### [Demo](http://ellekasai.github.io/boxgrid)
-
-BoxGrid helps you compare CSS grid systems. It contains examples of using different grid systems, all of which implementing the following, visually identical pages:
+BoxGrid helps you compare CSS grid systems. The following six visually identical pages are implemented using each grid system:
 
 1. Basic, Responsive Grid Columns
 2. Columns w/ No Gutters
@@ -13,9 +11,45 @@ BoxGrid helps you compare CSS grid systems. It contains examples of using differ
 5. Nested Grid
 6. Source Ordering
 
-## Currently Available Grid Systems
+↓ Take a look at the demo below to see what we mean.
+
+### [Demo](http://ellekasai.github.io/boxgrid)
+
+## Currently Available Grids
 
 * [Jeet](ellekasai.github.io/boxgrid/framework-examples/jeet/)
+
+## Contributing: Getting Started
+
+#### 1. Install Dependencies
+
+```
+bundle install
+bower install
+npm install
+```
+
+#### 2. Copy a Directory
+
+Copy `_starter-template` directory into `framework-examples`. Then rename the directory to match the name of the grid system. *NOTE: Do not use spaces in the directory name.*
+
+Also, you must rename starter-example.scss to match the folder name/CSS preprocessor you're using.
+
+#### 3. Edit Metadata
+
+Edit the YAML front matter in `index.html` - you'll see directions.
+
+#### 4. Implement HTML & CSS
+
+* HTML files to edit are `[1-6].html` files in `pages` directory.
+* CSS files to edit are `_[1-6].(scss|styl|less)` in `stylesheets/pages` directory.
+* Download CSS files necessary for the grid system anywhere you want. Feel free to use bower (`bower.json`) is already prepared for you.
+
+While developing, you can use `grunt` to compile CSS and access the server at http://localhost:7287.
+
+#### 5. Push and Submit Pull Request
+
+:)
 
 ## Open Source Libraries Used
 
