@@ -43,8 +43,7 @@ module.exports = (grunt) ->
           base: '_site'
     watch:
       sass:
-        files: ['<%= sass.common.files[0].cwd %><%= sass.common.files[0].src[0] %>'] +
-              frameworkWatchFiles["scss"]
+        files: ['<%= sass.common.files[0].cwd %><%= sass.common.files[0].src[0] %>'].concat(frameworkWatchFiles["scss"])
         tasks: ['sass', 'copy:all', 'jekyll:build']
       jekyll:
         files: ["index.html",
