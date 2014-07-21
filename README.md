@@ -33,7 +33,7 @@ npm install
 
 Copy `_starter-template` directory into `framework-examples`. Then rename the directory to match the name of the grid system. *NOTE: Do not use spaces in the directory name.*
 
-Also, you must rename starter-example.scss to match the folder name/CSS preprocessor you're using.
+Also, you must rename starter-template.scss to match the folder name/CSS preprocessor you're using.
 
 #### 3. Edit Metadata
 
