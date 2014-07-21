@@ -59,6 +59,7 @@ module.exports = (grunt) ->
     sass:
       options:
         style: 'compressed'
+        require: 'sass-css-importer'
       frameworkExamples:
         files: frameworkCompileFiles["scss"]
       common:
